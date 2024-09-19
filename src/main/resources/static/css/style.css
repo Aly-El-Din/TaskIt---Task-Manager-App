@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: yellow;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    width: 90%;
+    max-width: 450px;
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+.form-box h1 {
+    margin-bottom: 30px; /* Adds space below the header */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between input fields */
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure no content overflow */
+    max-height: 100px; /* Set an initial max-height to allow expansion */
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.input-field.hidden {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.input-field i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-field input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 16px;
+}
+
+.input-field input::placeholder {
+    color: #aaa;
+}
+
+/* Button styles */
+button {
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+
+/* Sign Up button */
+#signupBtn {
+    background: #19a2f9;
+    color: white;
+}
+
+#signupBtn:hover {
+    background: #1284c9;
+}
+
+/* Sign In button */
+#signinBtn {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #1284c9;
+    cursor: pointer; /* Ensure cursor is a hand */
+}
+
+#signinBtn:hover {
+    background: #e0e0e0;
+    border-color: #19a2f9;
+}
+
+/* Sign Up button */
+#signupBtnL {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #1284c9;
+    cursor: pointer;
+}
+
+#signupBtnL:hover {
+    background: #e0e0e0;
+    border-color: #19a2f9;
+}
+
+/* Sign In button */
+#signinBtnL {
+    background: #19a2f9;
+    color: white; /* Ensure cursor is a hand */
+}
+
+#signinBtnL:hover {
+    background: #1284c9;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.task {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task h3 {
+  margin: 0;
+  max-width: 150px; /* Adjust as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-status-container {
+  display: flex;
+  align-items: center;
+}
+
+.task-status-checkbox {
+  margin-right: 10px;
+}
+
+.task-status {
+  font-style: italic;
+}
+
+button#create-task-btn {
+    background-color: #19a2f9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button#create-task-btn:hover {
+    background-color: #0056b3;
+}
+
+.task-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.task-icons i {
+  font-size: 18px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.task-icons i:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Details -> TrackIt</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Task Details</h1>
+  <div id="task-details">
+    <!-- Task details will be rendered here -->
+  </div>
+
+  <button onclick="goBack()">Back to Tasks</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const task = JSON.parse(localStorage.getItem('selectedTask'));
+
+        const taskDetailsContainer = document.getElementById('task-details');
+        if (task) {
+            taskDetailsContainer.innerHTML = `
+                <h3>${task.title}</h3>
+                <p><strong>Description:</strong> ${task.description ? task.description : 'No description available'}</p>
+                <p><strong>Status:</strong> ${task.status ? 'Complete' : 'Pending'}</p>
+                <p><strong>Due Date:</strong> ${task.due_date ? new Date(task.due_date).toLocaleDateString() : 'No due date set'}</p>
+            `;
+        } else {
+            taskDetailsContainer.innerHTML = '<p>No task details available.</p>';
+        }
+    });
+
+    // Add the goBack function to handle the back navigation
+    function goBack() {
+        window.location.href = '/view/tasks';  // Redirect to the task list view
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login -> TrackIt</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/67027dbbfc.js" crossorigin="anonymous"></script>
+    <script src="/js/loginScript.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1 id="title">Sign in</h1>
+        <!-- Updated Form -->
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+            </div>
+            <!-- Sign In button submits the form -->
+            <button type="submit" id="signinBtnL">Sign In</button>
+        </form>
+        <p><br>Do not have a registered account?
+            <button type="button" id="signupBtnL">Sign Up</button>
+    </div>
+</div>
+</body>
+</html>

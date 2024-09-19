@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Task -> TrackIt</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Edit Task</h1>
+  <form id="edit-task-form">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea>
+
+    <label for="dueDate">Due Date:</label>
+    <input type="date" id="dueDate" name="dueDate">
+
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <option value="true">Complete</option>
+      <option value="false">Pending</option>
+    </select>
+
+    <button type="submit" class="icon-btn"><i class="fas fa-save"></i> Save Changes</button>
+  </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const task = JSON.parse(localStorage.getItem('taskToEdit'));
+
+        if (task) {
+            document.getElementById('title').value = task.title;
+            document.getElementById('description').value = task.description || '';
+            // Format the date to fit the input type "date" (YYYY-MM-DD)
+            document.getElementById('dueDate').value = task.due_date ? task.due_date.split('T')[0] : '';
+            document.getElementById('status').value = task.status ? 'true' : 'false';
+        }
+
+        document.getElementById('edit-task-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const dueDateValue = document.getElementById('dueDate').value;
+
+            const updatedTask = {
+                id: task.id,
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                // Ensure the date is in the required format with "T00:00:00"
+                due_date: dueDateValue ? `${dueDateValue}T00:00:00` : null,
+                status: document.getElementById('status').value === 'true'
+            };
+
+            fetch('/tasks/task', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedTask),
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/view/tasks';
+                } else {
+                    throw new Error('Failed to update task');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating task:', error);
+                alert('Failed to update task.');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
